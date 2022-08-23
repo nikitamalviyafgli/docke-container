@@ -1,3 +1,4 @@
+## to build the docker container on linux 
 
 sudo docker system prune -a
 
@@ -11,9 +12,9 @@ sudo docker push aadharmaskinguat:latest
 
 ---------------------------------------------------------------------
 
-# to push the container to azure registry
+## to push the container to azure registry
 
-# Export Command
+``` export command ```
 export ACR_REGISTRY=aadharmaskinguat.azurecr.io
 export ACR_NAMESPACE=aadharmaskingapp1
 export ACR_IMAGE_NAME=aadharmaskinguat
