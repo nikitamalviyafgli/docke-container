@@ -15,6 +15,7 @@ sudo docker push aadharmaskinguat:latest
 ## to push the container to azure registry
 
 ``` export command ```
+
 export ACR_REGISTRY=aadharmaskinguat.azurecr.io
 export ACR_NAMESPACE=aadharmaskingapp1
 export ACR_IMAGE_NAME=aadharmaskinguat
