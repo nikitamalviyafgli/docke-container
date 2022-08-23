@@ -1,14 +1,31 @@
-### list docker image
-docker images
 
-### lastest build
-sudo docker build -t docker-image-name .
-### OR 
-docker build  -t ImageName:TagName dir
+sudo docker system prune -a
 
-### run docker image
-docker run -p 8080:8080 docker-image-name
+sudo docker build . -t aadharmaskinguat
 
-### delete all docker images
-docker system prune -a
+sudo docker run -p 8080:8080 aadharmaskinguat
 
+sudo docker tag aadharmaskinguat:latest aadharmaskinguat:latest
+
+sudo docker push aadharmaskinguat:latest
+
+---------------------------------------------------------------------
+
+# to push the container to azure registry
+
+# Export Command
+export ACR_REGISTRY=aadharmaskinguat.azurecr.io
+export ACR_NAMESPACE=aadharmaskingapp1
+export ACR_IMAGE_NAME=aadharmaskinguat
+export ACR_IMAGE_TAG=latest
+echo $ACR_REGISTRY, $ACR_NAMESPACE, $ACR_IMAGE_NAME, $ACR_IMAGE_TAG
+
+sudo docker login $ACR_REGISTRY
+
+sudo docker tag aadharmaskinguat:latest $ACR_REGISTRY/$ACR_NAMESPACE/$ACR_IMAGE_NAME:$ACR_IMAGE_TAG
+
+sudo docker images aadharmaskinguat:latest
+
+sudo docker images $ACR_REGISTRY/$ACR_NAMESPACE/$ACR_IMAGE_NAME:$ACR_IMAGE_TAG
+
+sudo docker push $ACR_REGISTRY/$ACR_NAMESPACE/$ACR_IMAGE_NAME:$ACR_IMAGE_TAG
